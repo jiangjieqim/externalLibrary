@@ -4,7 +4,7 @@ set targetPath="%1"
 set CURDIR=%cd%
 echo ################################# cl ftfont: %CURDIR% #################################
 
-@REM echo %CURDIR%
+call warn.bat
 
 cd..
 set GITHUB_DIR=%cd%
@@ -23,7 +23,7 @@ cd %CURDIR%
 
 cd ftfont
 
-"%MYDIR%/VC/bin/cl.exe" -c *.c /Ox /nologo
+"%MYDIR%/VC/bin/cl.exe" %WARN% -c *.c /Ox /nologo
 
 @REM pause
 
