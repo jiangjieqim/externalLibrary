@@ -1,4 +1,5 @@
 @REM echo off
+set targetPath="%1"
 
 set CURDIR=%cd%
 echo ################################# cl ftfont: %CURDIR% #################################
@@ -36,14 +37,14 @@ cd ftfont
 for /f "delims=" %%a in ('dir /b *.dll') do set /a "s+=%%~za/1024"
 echo,%s% kb
 
-
-copy ftfont.dll %GITHUB_DIR%\game_v11\core\debug\ftfont.dll 
-copy ftfont.lib %GITHUB_DIR%\game_v11\core\debug\ftfont.lib 
-copy %CURDIR%\lib_freetype2.9.1\freetype.dll %GITHUB_DIR%\game_v11\core\debug\freetype.dll
-
+if %targetPath%=="" (
+    echo ...
+) else (
+    @REM %GITHUB_DIR%\game_v11\core\debug    
+    copy ftfont.dll %targetPath%\ftfont.dll 
+    copy ftfont.lib %targetPath%\ftfont.lib 
+    copy %CURDIR%\lib_freetype2.9.1\freetype.dll %targetPath%\freetype.dll
+)
 del *.obj *.exp *.lib *.dll
 
-
 cd %CURDIR%
-
-pause
