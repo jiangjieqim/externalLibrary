@@ -31,17 +31,18 @@ cd ftfont
 @REM 打印导出的函数
 %MYDIR%/VC/bin/dumpbin /exports ftfont.dll
 
-copy ftfont.dll %GITHUB_DIR%\game_v11\core\debug\ftfont.dll 
-copy ftfont.lib %GITHUB_DIR%\game_v11\core\debug\ftfont.lib 
-
 ::@echo off
 ::提取txt、doc、xls文件总大小
 for /f "delims=" %%a in ('dir /b *.dll') do set /a "s+=%%~za/1024"
 echo,%s% kb
 
+
+copy ftfont.dll %GITHUB_DIR%\game_v11\core\debug\ftfont.dll 
+copy ftfont.lib %GITHUB_DIR%\game_v11\core\debug\ftfont.lib 
+copy %CURDIR%\lib_freetype2.9.1\freetype.dll %GITHUB_DIR%\game_v11\core\debug\freetype.dll
+
 del *.obj *.exp *.lib *.dll
 
-copy %CURDIR%\lib_freetype2.9.1\freetype.dll %GITHUB_DIR%\game_v11\core\debug\freetype.dll
 
 cd %CURDIR%
 
