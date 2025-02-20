@@ -41,8 +41,8 @@ if %targetPath%=="" (
     echo ...
 ) else (
     @REM %GITHUB_DIR%\game_v11\core\debug    
+
     copy ftfont.dll %targetPath%\ftfont.dll 
-    copy ftfont.lib %targetPath%\ftfont.lib 
     copy %CURDIR%\lib_freetype2.9.1\freetype.dll %targetPath%\freetype.dll
 )
 del *.obj *.exp *.lib *.dll
