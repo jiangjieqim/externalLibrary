@@ -27,10 +27,21 @@ cd ftfont
 
 @REM pause
 
-"%MYDIR%/VC/bin/link.exe" -dll -out:ftfont.dll *.obj
+set outname=ftfont
+
+
+"%MYDIR%/VC/bin/link.exe" -dll -out:%outname%.dll *.obj
 
 @REM 打印导出的函数
-%MYDIR%/VC/bin/dumpbin /exports ftfont.dll
+%MYDIR%/VC/bin/dumpbin /exports %outname%.dll
+
+@REM 静态符号表
+@REM %MYDIR%/VC/bin/dumpbin /SYMBOLS ftfont.lib
+
+@REM 依赖
+%MYDIR%/VC/bin/dumpbin /dependents %outname%.dll
+
+
 
 ::@echo off
 ::提取txt、doc、xls文件总大小
@@ -42,7 +53,7 @@ if %targetPath%=="" (
 ) else (
     @REM %GITHUB_DIR%\game_v11\core\debug    
 
-    copy ftfont.dll %targetPath%\ftfont.dll 
+    copy %outname%.dll %targetPath%\%outname%.dll 
     copy %CURDIR%\lib_freetype2.9.1\freetype.dll %targetPath%\freetype.dll
 )
 del *.obj *.exp *.lib *.dll
