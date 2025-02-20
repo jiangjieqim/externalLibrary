@@ -3,7 +3,6 @@ set targetPath="%1"
 
 set targetPath="D:\github\game_v11\core\debug\lua51.dll"
 
-
 set CURDIR=%cd%
 
 cd..
