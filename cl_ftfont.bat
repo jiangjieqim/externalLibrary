@@ -41,8 +41,6 @@ set outname=ftfont
 @REM 依赖
 %MYDIR%/VC/bin/dumpbin /dependents %outname%.dll
 
-
-
 ::@echo off
 ::提取txt、doc、xls文件总大小
 for /f "delims=" %%a in ('dir /b *.dll') do set /a "s+=%%~za/1024"
