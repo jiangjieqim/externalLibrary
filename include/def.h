@@ -1,6 +1,6 @@
 #ifndef _DEF_H_
 #define _DEF_H_
-//启用debug模式
+//enable debug mode
 //#define DEBUG
 
 #ifndef DLLIMPORT
@@ -9,7 +9,7 @@
 	#endif
 
 	#ifdef COMMON_PRO
-		//common dll项目宏
+		//common dll
 		#define DLLIMPORT __declspec(dllexport)
 	#endif
 	#ifdef TEST_PRO
